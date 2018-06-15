@@ -1,0 +1,13 @@
+<h2>Sample API List</h2>
+<table id="customers">
+  <tr>
+    <th>S.No</th>
+    <th>Title</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor="let tasks of sampleDataListing.data">
+    <td>{{tasks.Id}}</td>
+    <td>{{tasks.Title}}</td>
+    <td>{{tasks.Status}}</td>
+  </tr>
+</table>
