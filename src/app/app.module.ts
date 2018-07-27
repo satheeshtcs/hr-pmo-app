@@ -27,6 +27,8 @@ import { AddUserComponent } from './add-user/add-user.component';
 import {DataTableModule} from "angular-6-datatable";
 import { EaduserComponent } from './eaduser/eaduser.component';
 import { ViewroleComponent } from './viewrole/viewrole.component';
+import { TaskListComponent } from './task-list/task-list.component';
+import { EnterTaskComponent } from './enter-task/enter-task.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -69,7 +71,9 @@ const appRoutes: Routes = [
     AddedComponent,
     UpdateuComponent,
     EaduserComponent,
-    ViewroleComponent
+    ViewroleComponent,
+    TaskListComponent,
+    EnterTaskComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

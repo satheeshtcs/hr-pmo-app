@@ -1,0 +1,61 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="kk">
+<form #taskForm="ngForm" ngNativeValidate (ngSubmit)="enterTask(taskForm.value)">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">ENTER TASK</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group" [class.has-success]="task_idControl.valid" 
+        [class.has-error]="task_idControl.invalid && task_idControl.touched">
+          <label for="task_id" class="control-label">Role Id</label>
+          <input required id="task_id" [(ngModel)]="user1.task_id" 
+          name="task_id" type="number" #task_idControl="ngModel" class="form-control">
+          <span class="help-block" *ngIf="task_idControl.invalid && task_idControl.touched">
+            Role Id is required
+          </span>
+        </div>
+      </div>
+    <div class="panel-body">
+      <div class="form-group" [class.has-success]="task_nameControl.valid" 
+      [class.has-error]="task_nameControl.invalid && task_nameControl.touched">
+        <label for="task_name" class="control-label">Role Name</label>
+        <input required id="task_name" [(ngModel)]="user1.task_name" 
+        name="task_name" type="text" #task_nameControl="ngModel" class="form-control">
+        <span class="help-block" *ngIf="task_nameControl.invalid && task_nameControl.touched">
+          Task Name is required
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="task_description">Task Description</label>
+        <input id="task_description" [(ngModel)]="user1.task_description" name="task_description" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="task_status">Task Description</label>
+        <input id="task_status" [(ngModel)]="user1.task_status" name="task_status" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="actual_start_date">Actual Start Date</label>
+        <input id="actual_start_date" [(ngModel)]="actual_start_date" placement="top" name="actual_start_date" type="text" bsDatepicker [bsConfig]="datePickerConfig"
+          class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="Actual_end_date">Actual End Date</label>
+        <input id="Actual_end_date" [(ngModel)]="Actual_end_date" placement="top" name="Actual_end_date" type="text" bsDatepicker [bsConfig]="datePickerConfig"
+          class="form-control">
+      </div>
+      
+      
+      
+      
+      
+    </div>
+    <div class="panel-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Save</button>
+    </div>
+  </div>
+</form>
+</div>
+
+

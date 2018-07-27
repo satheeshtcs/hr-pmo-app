@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero }    from '../hero';
 import {Http, Response, Headers} from'@angular/http';
-import { SampleService } from '../services/sample-service';
-import { Userrole } from '../models/userrole.module';
+import {Usertask} from '../models/task.module';
 
 @Component({
-  selector: 'app-enter-role',
-  templateUrl: './enter-role.component.html',
-  styleUrls: ['./enter-role.component.css']
+  selector: 'app-enter-task',
+  templateUrl: './enter-task.component.html',
+  styleUrls: ['./enter-task.component.css']
 })
-export class EnterRoleComponent implements OnInit   {
-  user1: Userrole ={
-    role_id: null,
-    role_code: null,
-    role_name: null,
-    role_description: null
+export class EnterTaskComponent implements OnInit {
+
+  user1: Usertask ={
+    task_id: null,
+    task_status: null,
+    task_name: null,
+    task_description: null,
+    actual_start_date: null,
+    actual_end_date: null
   };
   
     addUserRole(user_role_id: HTMLInputElement, user_code: HTMLInputElement, user_name: HTMLInputElement, user_description: HTMLInputElement):
