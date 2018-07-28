@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from'@angular/http';
-import {Usertask} from '../models/task.module';
+import { Usertask } from '../models/task.module';
 import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
@@ -32,6 +32,7 @@ export class EnterTaskComponent implements OnInit {
         "task_description" : user2.task_description,
         "actual_start_date" : user2.actual_start_date ,
         "actual_end_date" : user2.actual_end_date
+        
       }
       
       

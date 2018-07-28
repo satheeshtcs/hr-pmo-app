@@ -226,7 +226,7 @@ app.post('/entertask', function (req, res) {
  
   let task_id = req.body.task_id;
   let task_name = req.body.task_name;
-  let task_status = req.body.task_stat;
+  let task_status = req.body.task_status;
   let task_description = req.body.task_description;
   let actual_start_date = req.body.actual_start_date;
   let actual_end_date = req.body.actual_end_date;
