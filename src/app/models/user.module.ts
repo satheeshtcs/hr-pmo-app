@@ -4,8 +4,9 @@ export class User {
     first_name: string;
     last_name: string;
     password: string;
-    phoneNumber: number;
-    email : string;
+    phoneNumber?: number;
+    contactPreference: string;
+    email? : string;
     gender: string;
     isActive: boolean;
 
