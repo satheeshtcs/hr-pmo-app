@@ -21,7 +21,6 @@ export class EdituserComponent implements OnInit {
     emp_id: null,
     password: null,
     contactPreference: null,
-    
     gender: null,
     isActive: null,
     phoneNumber: null,
