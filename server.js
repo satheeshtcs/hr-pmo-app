@@ -97,20 +97,6 @@ app.put('/demoInsert', function (req, res) {
   });
 });
 
-
-
-app.delete('/demoList', function(req, res){
-  /*let user_role_id = req.body.user_role_id;
-  let role_code = req.body.role_code ;
-  let role_name = req.body.role_name;
-  let role_description = req.body.role_description ;*/
-  
-
-  con.query("DELETE FROM user_role WHERE user_role_id = ?",[req.params.user_role_id],{ user_role_id: user_role_id }, function (error, results, fields) {
-    if (error) throw error;
-    return res.send({ message: 'New role has been deleted successfully.' });
-});
-});
 //SUMAN
 
 app.get('/roleMap', function (req, res) {

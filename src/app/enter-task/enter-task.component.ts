@@ -28,16 +28,18 @@ export class EnterTaskComponent implements OnInit {
 
     ngOnInit() {
     }
-    addNewRole = function(user1){
-      this.userObj = {
-        "role_id" : user1.role_id,
-        "role_code" :user1.role_code ,
-        "role_name" : user1.role_name ,
-        "role_description" : user1.role_description
+    addNewTask = function(user2){
+      this.taskObj = {
+        "task_id" : user2.task_id,
+        "task_status" :user2.task_status ,
+        "task_name" : user2.task_name ,
+        "task_description" : user2.task_description,
+        "actual_start_date" : user2.actual_start_date ,
+        "actual_end_date" : user2.actual_end_date
       }
       
       
-        this.http.post("http://localhost:8080/addrole", this.userObj).subscribe((res:Response) => {
+        this.http.post("http://localhost:8080/addtask", this.taskObj).subscribe((res:Response) => {
         
       })
       

@@ -47,7 +47,9 @@ const appRoutes: Routes = [
   { path: 'added' ,canActivate:[AuthGuard], component:AddedComponent},
   { path: 'userupdate',canActivate:[AuthGuard], component: UpdateuComponent},
   { path: 'editdeluser',canActivate:[AuthGuard], component: EaduserComponent},
- { path: 'viewuserrole',canActivate:[AuthGuard], component: ViewroleComponent}
+  { path: 'tasklist',canActivate:[AuthGuard], component: TaskListComponent},
+  { path: 'entertask',canActivate:[AuthGuard], component: EnterTaskComponent},
+  { path: 'viewuserrole',canActivate:[AuthGuard], component: ViewroleComponent}
 ];
 @NgModule({
   declarations: [

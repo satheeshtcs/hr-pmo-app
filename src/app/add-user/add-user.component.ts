@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Role } from '../models/role.module';
-
 import { User } from '../models/user.module';
 import { Http } from '@angular/http';
 import { Router } from '../../../node_modules/@angular/router';
@@ -19,20 +17,11 @@ export class AddUserComponent implements OnInit {
     last_name: null,
     emp_id: null,
     password: null,
-    contactPreference: null,
-    
     gender: null,
     isActive: null,
     phoneNumber: null,
     email: '',
   };
-
-  roles: Role[]=[
-    {id:1,name:'HR'},
-    {id:2,name:'ASSOCIATE'},
-    {id:3,name:'LEAD'},
-    {id:3,name:'PMO'}
-  ];
 
   constructor(private http: Http,private router:Router ) { }
   
