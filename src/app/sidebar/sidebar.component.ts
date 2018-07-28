@@ -32,4 +32,10 @@ edu(){
 viewu(){
   this.router.navigate(['viewuserrole'])
 }
+view1(){
+  this.router.navigate(['tasklist'])
+}
+addu2(){
+  this.router.navigate(['entertask'])
+}
 }
