@@ -1,7 +1,7 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 <div class="kk">
-<form #taskForm="ngForm" ngNativeValidate (ngSubmit)="enterTask(taskForm.value)">
+<form #taskForm="ngForm" ngNativeValidate (ngSubmit)="saveTask(taskForm.value)">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">ENTER TASK</h3>
@@ -37,12 +37,12 @@
       </div>
       <div class="form-group">
         <label for="actual_start_date">Actual Start Date</label>
-        <input id="actual_start_date" [(ngModel)]="actual_start_date" placement="top" name="actual_start_date" type="text" 
+        <input id="actual_start_date" [(ngModel)]="actual_start_date" placement="top" name="actual_start_date" type="date" 
           class="form-control">
       </div>
       <div class="form-group">
         <label for="Actual_end_date">Actual End Date</label>
-        <input id="Actual_end_date" [(ngModel)]="Actual_end_date" placement="top" name="Actual_end_date" type="text" 
+        <input id="Actual_end_date" [(ngModel)]="Actual_end_date" placement="top" name="Actual_end_date" type="date" 
           class="form-control">
       </div>
       
