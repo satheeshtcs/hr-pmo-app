@@ -14,7 +14,6 @@ import { EditComponent } from './edit/edit.component';
 import { EnterRoleComponent } from './enter-role/enter-role.component';
 import { UserRoleComponent } from './user-role/user-role.component';
 import { ChangepComponent } from './changep/changep.component';
-import { UpdatepComponent } from './updatep/updatep.component';
 import { UserComponent } from './user/user.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { EdituroleComponent } from './editurole/editurole.component';
@@ -29,6 +28,7 @@ import { EaduserComponent } from './eaduser/eaduser.component';
 import { ViewroleComponent } from './viewrole/viewrole.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { EnterTaskComponent } from './enter-task/enter-task.component';
+import { EdittaskComponent } from './edittask/edittask.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -39,7 +39,6 @@ const appRoutes: Routes = [
   { path: 'dashboard/enterrole' ,canActivate:[AuthGuard], component:EnterRoleComponent},
   { path: 'dashboard/userrole' ,canActivate:[AuthGuard], component:UserRoleComponent},
   { path:'dashboard/changep' ,canActivate:[AuthGuard],  component: ChangepComponent},
-  { path:'updatep' ,canActivate:[AuthGuard], component: UpdatepComponent },
   { path:'dashboard/user' ,canActivate:[AuthGuard], component: UserComponent },
   { path:'editdeluser/edituser' ,canActivate:[AuthGuard], component: EdituserComponent },
   { path:'dashboard/adduser' ,canActivate:[AuthGuard], component: AddUserComponent },
@@ -49,7 +48,8 @@ const appRoutes: Routes = [
   { path: 'editdeluser',canActivate:[AuthGuard], component: EaduserComponent},
   { path: 'tasklist',canActivate:[AuthGuard], component: TaskListComponent},
   { path: 'entertask',canActivate:[AuthGuard], component: EnterTaskComponent},
-  { path: 'viewuserrole',canActivate:[AuthGuard], component: ViewroleComponent}
+  { path: 'viewuserrole',canActivate:[AuthGuard], component: ViewroleComponent},
+  { path: 'tasklist/edittask',canActivate:[AuthGuard], component: EdittaskComponent}
 ];
 @NgModule({
   declarations: [
@@ -62,7 +62,6 @@ const appRoutes: Routes = [
     EnterRoleComponent,
     UserRoleComponent,
     ChangepComponent,
-    UpdatepComponent,
     AddUserComponent,
     UserComponent,
     EdituserComponent,
@@ -75,7 +74,8 @@ const appRoutes: Routes = [
     EaduserComponent,
     ViewroleComponent,
     TaskListComponent,
-    EnterTaskComponent
+    EnterTaskComponent,
+    EdittaskComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

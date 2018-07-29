@@ -167,7 +167,7 @@ app.put('/updateuser', function (req, res) {
 
   con.query("UPDATE user SET first_name = ?,last_name = ? ,phone_no = ?, Email = ?,Gender = ? WHERE emp_id = ?", [first_name,last_name,phone_no,Email,Gender, emp_id], function (error, results, fields) {
       if (error) throw error;
-      return res.send({ error: false, data: results, message: 'Task has been updated successfully.' });
+      return res.send({ error: false, data: results, message: 'User has been updated successfully.' });
   });
 });
 app.put('/updateuserr', function (req, res) {
@@ -218,33 +218,6 @@ app.post('/adduser', function (req, res) {
   });
 });
 
-
-
-
-//Sumantask
-app.post('/entertask', function (req, res) {
- 
-  let task_id = req.body.task_id;
-  let task_name = req.body.task_name;
-  let task_status = req.body.task_status;
-  let task_description = req.body.task_description;
-  let actual_start_date = req.body.actual_start_date;
-  let actual_end_date = req.body.actual_end_date;
-  
-
-  if (!task_id) {
-      return res.status(400).send({ error:true, message: 'Please provide task_id' });
-  }
-
-  con.query("INSERT INTO task SET ? ", { task_id: task_id ,task_name: task_name, task_status: task_status, task_description:task_description, actual_start_date:actual_start_date, actual_end_date:actual_end_date  }, function (error, results, fields) {
-      if (error) throw error;
-      return res.send({ error: false, data: results, message: 'New task has been created successfully.' });
-  });
-});
-//Sumantask
-
-
-
 app.post('/addrole', function (req, res) {
  
   let role_id = req.body.role_id;
@@ -263,3 +236,70 @@ app.post('/addrole', function (req, res) {
       return res.send({ error: false, data: results, message: 'New task has been created successfully.' });
   });
 });
+
+
+
+
+//Sumantask
+app.delete('/taskdel1/:id', function (req, res) {
+ 
+  let id = req.params.id;
+ 
+  con.query('DELETE FROM task WHERE task_id = ?',[id], function (error, results, fields) {
+      if (error) throw error;
+      return res.send({ error: false, data: results, message: 'Task has been deleted successfully.' });
+  });
+});
+
+app.get('/tasklist', function (req, res) {
+  //Make SQL statement:
+ 
+  var sql = "SELECT * FROM task ";
+  //Execute the SQL statement, with the value array:
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    return res.send({ status: true, data: result, message: 'Task List success' });
+  });
+});
+
+app.post('/entertask', function (req, res) {
+ 
+  let task_id = req.body.task_id;
+  let task_name = req.body.task_name;
+  let task_status = req.body.task_status;
+  let task_description = req.body.task_description;
+  let actual_start_date = req.body.actual_start_date;
+  let actual_end_date = req.body.actual_end_date;
+  
+
+  if (!task_id) {
+      return res.status(400).send({ error:true, message: 'Please provide task_id' });
+  }
+
+  con.query("INSERT INTO task SET ? ", { task_id: task_id ,task_name: task_name, task_status: task_status, task_description: task_description, 
+    actual_start_date: actual_start_date, actual_end_date: actual_end_date  }, function (error, results, fields) {
+      if (error) throw error;
+      return res.send({ error: false, data: results, message: 'New task has been created successfully.' });
+  });
+});
+app.put('/updatetask', function (req, res) {
+ 
+  let task_id = req.body.task_id;
+  let task_name = req.body.task_name;
+  let task_status = req.body.task_status;
+  let task_description = req.body.task_description;
+  let actual_start_date = req.body.actual_start_date;
+  let actual_end_date = req.body.actual_end_date;
+  
+
+  
+
+  con.query("UPDATE task SET task_name = ?,task_status = ? ,task_description = ?, actual_start_date = ?,actual_end_date = ? WHERE task_id = ?", [task_name,task_status,task_description,actual_start_date, actual_end_date,task_id], function (error, results, fields) {
+      if (error) throw error;
+      return res.send({ error: false, data: results, message: 'Task has been updated successfully.' });
+  });
+});
+//Sumantask
+
+
+

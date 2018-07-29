@@ -14,9 +14,10 @@
     <th>Task Description</th>
     <th>Actual Start Date</th>
     <th>Actual End Date</th>
+    <th></th>
    
   </tr>
-   <tr  *ngFor="let user of userDataListing.data let i = index"[attr.data-index]="i">
+   <tr  *ngFor="let user of taskDataListing.data let i = index"[attr.data-index]="i">
     <td>{{user.task_id}}</td>
     <td>{{user.task_name}}</td>
     <td>{{user.task_status}}</td>
@@ -27,7 +28,7 @@
     
     
     
-    <td ><a routerLink = 'tasklist'> 
+    <td ><a routerLink = 'edittask'> 
         <span class="glyphicon glyphicon-pencil"(click)="getIndex(i)" ></span>
       </a> &nbsp;  
       <a ><button class="btn" ><i class="fa fa-trash" (click)="deleteTask(i)"></i></button></a></td>

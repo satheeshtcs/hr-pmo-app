@@ -3,6 +3,7 @@ import { Hero }    from '../hero';
 import {Http, Response, Headers} from'@angular/http';
 import { SampleService } from '../services/sample-service';
 import { Userrole } from '../models/userrole.module';
+import { Role } from '../models/role.module';
 
 @Component({
   selector: 'app-enter-role',
@@ -22,6 +23,14 @@ export class EnterRoleComponent implements OnInit   {
       console.log(`Adding UserRoleId : ${user_role_id.value} and RoleCode : ${user_code.value} and RoleName : ${user_name.value} and RoleDescription : ${user_description.value} `);
       return false;
     }
+
+    roles: Role[]=[
+      {id:0,name:'ADMIN'},
+      {id:1,name:'HR'},
+      {id:2,name:'ASSOCIATE'},
+      {id:3,name:'LEAD'},
+      {id:4,name:'PMO'}
+    ];
 
    constructor(private http: Http ) { }
 
