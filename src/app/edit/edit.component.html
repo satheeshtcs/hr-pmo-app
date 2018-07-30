@@ -1,0 +1,30 @@
+<table id="customers">
+  <tr>
+    <th>Employee id</th>
+    <th>Role</th>
+   
+   
+  </tr>
+  
+  <tr *ngFor="let roles of roleData.data; let i = index"[attr.data-index]="i">
+      
+    <td>{{roles.emp_id}}</td>
+    <td>
+      <select  name="select" class="Roles" value="Lead" >
+      
+			<option value="Associate">Associate</option>
+			<option value="Lead" >Lead</option>
+			<option value="Head">Head</option>
+			
+      </select>
+    
+    </td>
+    <td>
+        <form (ngSubmit) = "editUser(i)">
+        <input type="submit" value="Submit">
+        </form></td>
+   
+  </tr>
+
+
+</table>

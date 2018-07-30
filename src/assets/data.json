@@ -1,0 +1,12 @@
+{
+    "user_id":1,
+    "childnodes":[{"user_id":2,"childnodes":[]},{"user_id":3,"childnodes":[{
+        "user_id":4,
+        "childnodes":[{"user_id":5,"childnodes":[]},{"user_id":6,"childnodes":[{"user_id":8,"childnodes":[]}]}]
+    }
+    ]
+}
+
+
+    ]
+}

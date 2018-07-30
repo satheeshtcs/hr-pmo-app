@@ -1,0 +1,10 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="login">
+<form [formGroup]="rForm" (submit)="checkP($event)" >
+    <input type="password" id="password" placeholder="Old Password" name="password" formControlName="password"><br>
+    <div class="alert" *ngIf="!rForm.controls['password'].valid && (rForm.controls['password'].touched)"><i class="fa fa-times-circle"></i>  Please Enter Old Password 
+      </div>
+  <input type="submit" value="Change Password" >
+  </form>
+</div>
