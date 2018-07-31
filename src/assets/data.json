@@ -1,12 +1,51 @@
 {
-    "user_id":1,
-    "childnodes":[{"user_id":2,"childnodes":[]},{"user_id":3,"childnodes":[{
-        "user_id":4,
-        "childnodes":[{"user_id":5,"childnodes":[]},{"user_id":6,"childnodes":[{"user_id":8,"childnodes":[]}]}]
-    }
+    "id": 1,
+    "children": [
+      {
+        "id": 2,
+        "children": [
+          {
+            "id": 3,
+           "children": []
+          },
+          {
+            "id": 5,
+            "children": [
+              {
+                "id": 4,
+                "children": [
+                  {
+                    "id": 6,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 7,
+       "children": [
+          {
+            "id": 9,
+            "children": []
+          },
+          {
+            "id": 11,
+            "children": [
+              {
+                "id": 10,
+                "children": [
+                  {
+                    "id": 20,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     ]
-}
-
-
-    ]
-}
+  }
