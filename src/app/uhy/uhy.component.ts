@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DropdownModule, WavesModule } from 'angular-bootstrap-md';
 import { Trial1Service } from '../trial1.service';
 import { concat } from 'rxjs';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -27,15 +28,17 @@ target1:any={};
  
  
 userdata : any = {};
+userData1 : any = {};
+data3 : any ={};
 
-constructor(private trial1:Trial1Service) { }
+constructor(private trial1:Trial1Service,private userListing:UserService) { }
 
 
 
   ngOnInit() {
     this.trial1.getJSON().subscribe(data => this.userdata = data);
     
-    
+    this.userListing.getUserData().subscribe(data =>this.userData1 = data );
     
     
   }
@@ -69,6 +72,7 @@ searchFilter(search: string, userdata: any[]) {
 }*/
 n=0;
 m=0;
+k=0;
 onSubmita(e){
   console.log(this.userdata);
   console.log(e.target.elements[0].value);
@@ -81,8 +85,11 @@ onSubmita(e){
  
   while(f[this.m]!=null) // check here 
   {
-    console.log(f[this.m]);
+    this.k=Number(f[this.m]);
     this.m++;
+this.data3=this.userData1.data[this.k].first_name;
+console.log(this.data3);
+
   }
 
   
