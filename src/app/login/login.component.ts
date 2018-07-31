@@ -3,6 +3,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SessionStorageService } from '../../../node_modules/ngx-webstorage';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   
   constructor(
               private router:Router,private user:UserService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,private sessionst:SessionStorageService) {
                 this.rForm = fb.group({
                   'emp_id': [null, Validators.required],
                   'password':  [null, Validators.required],
@@ -31,11 +32,14 @@ export class LoginComponent implements OnInit {
                
 	 ngOnInit() {
 		this.user.getUserData().subscribe(data => this.userData = data);
-    
+    this.sessionst.store("logdata",false);
    
   }
+  
+  
   n=0;
    loginUser(e){
+    
      this.n=0;
      e.preventDefault();
      console.log(e);
@@ -52,7 +56,14 @@ export class LoginComponent implements OnInit {
      if(username == this.userData.data[this.n].emp_id && password == this.userData.data[this.n].password ){
      this.user.setUserLoggenIn();
       this.router.navigate(['dashboard'])
-      
+      this.sessionst.store("username",this.userData.data[this.n].emp_id);
+      this.sessionst.store("first_name",this.userData.data[this.n].first_name);
+      this.sessionst.store("last_name",this.userData.data[this.n].last_name);
+      this.sessionst.store("password",this.userData.data[this.n].password);
+      this.sessionst.store("email",this.userData.data[this.n].email);
+      this.sessionst.store("phone_no",this.userData.data[this.n].phone_no);
+      this.sessionst.store("gender",this.userData.data[this.n].gender);
+      this.sessionst.store("logdata",true);
       break;
       
      

@@ -1,28 +1,18 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 <div class="kk">
-<form #userForm="ngForm" ngNativeValidate (ngSubmit)="saveUser(userForm.value)">
+<form #userForm="ngForm" ngNativeValidate (ngSubmit)="updateUserP(userForm.value)">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h3 class="panel-title">ADD USER</h3>
+      <h3 class="panel-title">UPDATE PROFILE</h3>
     </div>
 </div>
-    <div class="panel-body">
-      <div class="form-group" [class.has-success]="emp_idControl.valid" 
-      [class.has-error]="emp_idControl.invalid && emp_idControl.touched">
-        <label for="emp_id" class="control-label">Employee ID</label>
-        <input required id="emp_id" [(ngModel)]="user.emp_id" 
-        name="emp_id" type="number" #emp_idControl="ngModel" class="form-control">
-        <span class="help-block" *ngIf="emp_idControl.invalid && emp_idControl.touched">
-          Employee Id is required
-        </span>
-      </div>
-    </div>
+    
     <div class="panel-body">
       <div class="form-group" [class.has-success]="first_nameControl.valid" 
       [class.has-error]="first_nameControl.invalid && first_nameControl.touched">
         <label for="first_name" class="control-label">First Name</label>
-        <input required id="first_name" [(ngModel)]="user.first_name" 
+        <input required id="first_name" [(ngModel)]="first_name" 
         name="first_name" type="text" #first_nameControl="ngModel" class="form-control">
         <span class="help-block" *ngIf="first_nameControl.invalid && first_nameControl.touched">
           First Name is required
@@ -30,12 +20,12 @@
       </div>
       <div class="form-group">
         <label for="last_name">Last Name</label>
-        <input id="last_name" [(ngModel)]="user.last_name" name="last_name" type="text" class="form-control">
+        <input id="last_name" [(ngModel)]="last_name" name="last_name" type="text" class="form-control">
       </div>
       <div class="form-group" [class.has-error]="email.invalid && email.touched">
         <label for="email" class="control-label">Email</label>
         <input required id="email" 
-        [email]="user.email!==''" id="email" [(ngModel)]="user.email" name="email" type="text" #email="ngModel" class="form-control">
+        [email]="email1!==''" id="email" [(ngModel)]="email1" name="email" type="text" #email="ngModel" class="form-control">
         <span class="help-block" *ngIf="email.errors?.required && email.touched">
           Email is required
         </span>
@@ -46,7 +36,7 @@
       <div class="form-group" [class.has-error]="phoneNumber.invalid && phoneNumber.touched">
         <label class="control-label" for="phoneNumber">Phone Number</label>
         <input required id="phonenumber" #phoneNumber="ngModel"
-        id="phoneNumber" [(ngModel)]="user.phoneNumber" name="phoneNumber" type="number" size="10"  class="form-control">
+        id="phoneNumber" [(ngModel)]="phone_no" name="phoneNumber" type="number" size="10"  class="form-control">
         <span class="help-block" *ngIf="phoneNumber.invalid && phoneNumber.touched">
           Phone Number is required
         </span>
@@ -57,10 +47,10 @@
         <label class="control-label">Gender</label>
         <div class="form-control">
           <label class="radio-inline">
-            <input type="radio" value="male" #gender="ngModel" required name="gender" [(ngModel)]="user.gender"> Male
+            <input type="radio" value="m" #gender="ngModel" required name="gender" [(ngModel)]="gender1"> Male
           </label>
           <label class="radio-inline">
-            <input type="radio" value="female" #gender="ngModel" required name="gender" [(ngModel)]="user.gender"> Female
+            <input type="radio" value="f" #gender="ngModel" required name="gender" [(ngModel)]="gender1"> Female
           </label>
         </div>
         <span class="help-block" *ngIf="gender.invalid && gender.touched">
@@ -72,9 +62,9 @@
       
       
     </div>
-   
+    <div class="panel-footer">
       <button type="submit" class="button" [disabled]="userForm.invalid">Save</button>
-   
+    </div>
   
 </form>
 

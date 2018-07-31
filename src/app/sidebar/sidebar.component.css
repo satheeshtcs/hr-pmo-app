@@ -8,6 +8,8 @@ body{
     margin: 0;
     border: 0;
     float: left;
+    position: relative;
+    top: -40px;
   }
   #cssmenu ul,
   li {

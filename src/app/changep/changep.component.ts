@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '../../../node_modules/@angular/router';
+import { User } from '../models/user.module';
 
 import { Form } from '../form'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
+import { SessionStorageService } from '../../../node_modules/ngx-webstorage';
 
 @Component({
   selector: 'app-changep',
@@ -15,7 +17,20 @@ export class ChangepComponent implements OnInit {
   rForm: FormGroup;                   
   password:string = '';
   userData	: any = {};
-  constructor(private userDataList: UserService, private router:Router,private fb: FormBuilder) {this.rForm = fb.group({
+  user: User={
+    user_id: null,
+    first_name: null,
+    last_name: null,
+    emp_id: null,
+    password: null,
+    contactPreference: null,
+    rpassword:null,
+    gender: null,
+    isActive: null,
+    phoneNumber: null,
+    email: '',
+  };
+  constructor(private userDataList: UserService, private router:Router,private fb: FormBuilder,private sessionst:SessionStorageService) {this.rForm = fb.group({
     'password':  [null, Validators.required],
     'validate' : ''
   }); }
@@ -25,12 +40,14 @@ export class ChangepComponent implements OnInit {
 
 }
 checkP(e){
-  e.preventDefault();
      console.log(e);
-     var password = e.target.elements[0].value;
+     var password = btoa(this.user.password);
      
-     if(this.userData.data[0].password == password){
+     if(this.sessionst.retrieve("password") == password){
         this.router.navigate(['updatep'])
+     }
+     else{
+       window.alert('Wrong Password')
      }
      if(password=="")
    {

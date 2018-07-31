@@ -13,7 +13,7 @@
     <th>Actions</th>
    
   </tr>
-   <tr  *ngFor="let user of sampleDataListing.data let i = index"[attr.data-index]="i">
+   <tr  *ngFor="let user of userData.data let i = index"[attr.data-index]="i">
     <td>{{user.role_id}}</td>
     <td>{{user.role_code}}</td>
     <td>{{user.role_name}}</td>

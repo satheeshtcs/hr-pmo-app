@@ -3,6 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 
+
+
 // Connection string
 const con = mysql.createConnection({
   host: "localhost",
@@ -244,5 +246,34 @@ app.post('/addrole', function (req, res) {
   con.query("INSERT INTO user_role SET ? ", { role_id: role_id ,role_code: role_code,role_name: role_name, role_description: role_description  }, function (error, results, fields) {
       if (error) throw error;
       return res.send({ error: false, data: results, message: 'New task has been created successfully.' });
+  });
+});
+
+app.put('/changepassword', function (req, res) {
+ 
+  let emp_id = req.body.emp_id;
+  let password = req.body.password;
+
+  con.query("UPDATE user SET password = ? WHERE emp_id = ?", [password,emp_id], function (error, results, fields) {
+      if (error) throw error;
+      return res.send({ error: false, data: results, message: 'Task has been updated successfully.' });
+  });
+});
+
+app.put('/updateprofile', function (req, res) {
+ 
+  let emp_id = req.body.emp_id;
+  let first_name = req.body.first_name;
+  let last_name = req.body.last_name;
+  let phone_no = req.body.phone_no;
+  let Email = req.body.Email;
+  let Gender = req.body.Gender;
+  
+
+  
+
+  con.query("UPDATE user SET first_name = ?,last_name = ? ,phone_no = ?, Email = ?,Gender = ? WHERE emp_id = ?", [first_name,last_name,phone_no,Email,Gender, emp_id], function (error, results, fields) {
+      if (error) throw error;
+      return res.send({ error: false, data: results, message: 'Task has been updated successfully.' });
   });
 });

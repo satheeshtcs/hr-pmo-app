@@ -27,7 +27,10 @@ import { AddUserComponent } from './add-user/add-user.component';
 import {DataTableModule} from "angular-6-datatable";
 import { EaduserComponent } from './eaduser/eaduser.component';
 import { ViewroleComponent } from './viewrole/viewrole.component';
-
+import { Ng2Webstorage} from 'ngx-webstorage';
+import { ProfileComponent } from './profile/profile.component';
+import { PcmessageComponent } from './pcmessage/pcmessage.component';
+import { ProfmesComponent } from './profmes/profmes.component' ;
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dashboard', canActivate:[AuthGuard], component: DashboardComponent },
@@ -45,7 +48,11 @@ const appRoutes: Routes = [
   { path: 'added' ,canActivate:[AuthGuard], component:AddedComponent},
   { path: 'userupdate',canActivate:[AuthGuard], component: UpdateuComponent},
   { path: 'editdeluser',canActivate:[AuthGuard], component: EaduserComponent},
- { path: 'viewuserrole',canActivate:[AuthGuard], component: ViewroleComponent}
+ { path: 'viewuserrole',canActivate:[AuthGuard], component: ViewroleComponent},
+ { path: 'cpmessage',canActivate:[AuthGuard], component: PcmessageComponent},
+ { path: 'uprofile',canActivate:[AuthGuard], component: ProfileComponent},
+ { path: 'profmessage',canActivate:[AuthGuard], component: ProfmesComponent}
+ 
 ];
 @NgModule({
   declarations: [
@@ -69,7 +76,10 @@ const appRoutes: Routes = [
     AddedComponent,
     UpdateuComponent,
     EaduserComponent,
-    ViewroleComponent
+    ViewroleComponent,
+    ProfileComponent,
+    PcmessageComponent,
+    ProfmesComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -78,7 +88,8 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    Ng2Webstorage
 
   ],
   providers: [AppComponent,UserService,AuthGuard],

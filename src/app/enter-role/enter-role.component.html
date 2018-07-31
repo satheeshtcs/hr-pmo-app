@@ -1,10 +1,11 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 <div class="kk">
-<form #userForm="ngForm" ngNativeValidate (ngSubmit)="updateRole(userForm.value)">
+<form #userForm="ngForm" ngNativeValidate (ngSubmit)="addNewRole(userForm.value)">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h3 class="panel-title">UPDATE USER ROLE</h3>
+      <h3 class="panel-title">ADD USER ROLE</h3>
+    </div>
     </div>
     <div class="panel-body">
         <div class="form-group" [class.has-success]="role_idControl.valid" 
@@ -48,10 +49,10 @@
       
       
     </div>
-    <div class="panel-footer">
-      <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Save</button>
-    </div>
-  </div>
+    
+      <button type="submit" class="button" [disabled]="userForm.invalid">Save</button>
+    
+  
 </form>
-</div>
+
 

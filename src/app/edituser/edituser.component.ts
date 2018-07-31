@@ -7,6 +7,8 @@ import {ActivatedRoute } from '@angular/router';
 import { Http, Response, Headers } from '@angular/http';
 import { User } from '../models/user.module';
 import { UserService } from '../user.service';
+import { delay } from '../../../node_modules/@types/q';
+import { SessionStorageService } from '../../../node_modules/ngx-webstorage';
 
 @Component({
   selector: 'app-edituser',
@@ -14,33 +16,41 @@ import { UserService } from '../user.service';
   styleUrls: ['./edituser.component.css']
 })
 export class EdituserComponent implements OnInit {
-  user: User ={
-    user_id: null,
-    first_name: null,
-    last_name: null,
-    emp_id: null,
-    password: null,
-    contactPreference: null,
-    
-    gender: null,
-    isActive: null,
-    phoneNumber: null,
-    email: '',
-  };
+  
   private n:number=0;
   data:object = {};
  sampleDataListing	: any = {};
  userData : any = {};
+users:any = {};
+ first_names : string;
  p=0;
-constructor(private userDataList: UserService , private dataService:DataService,private http: Http,private router:Router ) { }
-
-ngOnInit() {
+ 
+ 
+ 
+constructor(private userDataList: UserService , private dataService:DataService,private http: Http,private router:Router,private sessionst: SessionStorageService ) { }
+ngOnInit(){
+  
   this.n=this.dataService.getIndexObj();
-  this.userDataList.getUserData().subscribe(data => this.userData = data);
-  
-  
+  this.userDataList.getUserData().subscribe(data =>  this.userData = data);
+this.users=this.sessionst.retrieve("user")
 
 }
+
+user: User ={
+
+  user_id: null,
+  first_name: null,
+  last_name: null,
+  emp_id: null,
+  password: null,
+  rpassword: null,
+  contactPreference: null,
+  
+  gender: null,
+  isActive: null,
+  phoneNumber: null,
+  email: '',
+};
 
 updateUser = function(user){
  
@@ -63,4 +73,5 @@ updateUser = function(user){
 
 
 }
+
 }

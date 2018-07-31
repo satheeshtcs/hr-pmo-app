@@ -19,6 +19,7 @@ export class AddUserComponent implements OnInit {
     last_name: null,
     emp_id: null,
     password: null,
+    rpassword: null,
     contactPreference: null,
     
     gender: null,

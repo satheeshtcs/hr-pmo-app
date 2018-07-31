@@ -5,13 +5,20 @@
 }
 .kk{
 position: absolute;
-	top: 130px;
+	top: 120px;
 	left: 300px;
 	right: -40px;
-    bottom: -40px;
+	bottom: -40px;
+	 
 }
 .panel-heading{
 	background-color: #333;
+	margin-bottom:0;
+	
+}
+.panel-body{
+	
+	padding: 0;
 }
 .button{
 	width: 260px;

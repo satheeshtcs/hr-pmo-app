@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { DataService } from '../data.service';
 import { Http } from '../../../node_modules/@angular/http';
+import { SessionStorageService } from '../../../node_modules/ngx-webstorage';
 
 @Component({
   selector: 'app-eaduser',
@@ -10,7 +11,7 @@ import { Http } from '../../../node_modules/@angular/http';
 })
 export class EaduserComponent implements OnInit {
   userDataListing	: any = {};
-  constructor(private userDataList: UserService,private dataService : DataService,private http: Http) { }
+  constructor(private userDataList: UserService,private dataService : DataService,private http: Http,private sessionst:SessionStorageService) { }
 n=0;
   ngOnInit() {
     this.userDataList.getUserData().subscribe(data => this.userDataListing = data);
@@ -21,6 +22,8 @@ n=0;
     this.n=i;
     console.log(this.n);
     this.dataService.setIndexObj( this.n);
+    this.dataService.setUser( this.userDataListing.data[i]);
+    this.sessionst.store("user",this.userDataListing.data[i]);
   }
   deleteUser = function(i){
   

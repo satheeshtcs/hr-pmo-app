@@ -4,6 +4,8 @@ import { SampleService } from '../services/sample-service';
 import { Http } from '../../../node_modules/@angular/http';
 import {Router} from '@angular/router';
 import { Userrole } from '../models/userrole.module';
+import { UserService } from '../user.service';
+import { SessionStorageService } from '../../../node_modules/ngx-webstorage';
 
 @Component({
   selector: 'app-editurole',
@@ -21,21 +23,24 @@ export class EdituroleComponent implements OnInit {
 
 
   private n:number=0;
-  sampleDataListing	: any = {};
-  constructor(private SampleServiceList: SampleService, private dataService:DataService,private http: Http,private router:Router) { }
+  userData	: any = {};
+  userRole : any={};
+  constructor(private userService: UserService, private dataService:DataService,private http: Http,private router:Router,private sessionst:SessionStorageService) { }
 
   ngOnInit() {
     this.n=this.dataService.getIndexObj();
-    this.SampleServiceList.getListData123a().subscribe(data => this.sampleDataListing = data);
+    this.userService.getUserRole().subscribe(data => this.userData = data);
+this.userRole=this.sessionst.retrieve("role");
+
   }
   updateRole = function(user1){
     this.userObj = {
-      "role_id" : this.sampleDataListing.data[this.n].role_id,
+      "role_id" : this.userData.data[this.n].role_id,
       "role_code" :user1.role_code ,
       "role_name" : user1.role_name ,
+
       "role_description" : user1.role_description
      
-
     }
     
     if(user1.role_id == ""){
