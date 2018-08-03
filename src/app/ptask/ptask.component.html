@@ -1,0 +1,31 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="dash">
+    <p>   WELCOME TO YOUR DASHBOARD</p>
+    </div>
+<div *ngFor="let user of userData.data let i = index"[attr.data-index]="i"> 
+    
+    <div class="timeline">
+            <div *ngIf="i%2==0">
+        <div class="container left">
+          <div class="content">
+            <h2>{{user.tast_name}}</h2>
+            <p>{{user.task_description}}</p>
+<input type="submit" (click)="complete(i)" value="Completed">        
+ </div>
+        </div>
+    </div>
+    
+            <div *ngIf="i%2!=0">
+        <div class="container right">
+          <div class="content">
+            <h2>{{user.tast_name}}</h2>
+            <p>{{user.task_description}}</p>
+            <input type="submit" value="Completed"> 
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+ 
+

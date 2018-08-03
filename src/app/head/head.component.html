@@ -1,0 +1,39 @@
+
+
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<style>
+        body {
+            background-color: grey;
+        }
+        </style>
+        <body>
+<div class="dash">
+    <p>   WELCOME TO HEAD DASHBOARD</p>
+    </div>
+    <p align="right">
+        <input type="submit"(click)="ctasks(i)" value="Completed tasks" >
+  </p>
+<div *ngFor="let user of userData.data let i = index"[attr.data-index]="i"> 
+    
+    <div class="timeline">
+        <div *ngIf="user.tast_status==0">
+        <div class="container left">
+          <div class="content">
+            <h2>{{user.tast_name}}</h2>
+            <p>{{user.task_description}}</p>
+            <input type="submit" (click)="assign(i)" value="Assign">
+ </div>
+        </div>
+    </div>
+    
+            
+    </div>
+    
+    </div>
+    <div class="count">
+    <input type="button" (click)="count()" value="Show count">
+    <div *ngIf="m!=0">
+    <p>{{m}}</p>
+</div>
+</div>
