@@ -1,0 +1,79 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Team -->
+<div class="pos">
+<section id="team" class="pb-5">
+   
+    <div class="container">
+        <h5 class="section-title h1">TASK MENU
+          </h5> 
+            <select name="Login As" class="logins" class="dpd" [(ngModel)]="tdetail.month">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+                </select>
+      
+        <div class="row"> 
+          
+            <!-- Team member -->
+            <div *ngFor="let user of taskmembers.data let i = index"[attr.data-index]="i">
+                <div *ngIf="user.emp_id==emp_id">
+                   
+                    <div class="ss">
+      
+                   
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="xy">
+                                <div class="card-body text-center">
+                         
+                                    <h4 class="card-title"><div class="fd">{{user.task_name}}</div></h4>
+                                    <p class="card-text"><input type="number" [(ngModel)]="tdetail.val[i]" > </p>
+                                    <input type="submit" (click)="sub(i)" value="Submit Count">
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                       
+                        
+                  
+                  
+                </div>
+            </div>
+            
+            <!-- ./Team member -->
+            <!-- Team member -->
+            
+            <!-- ./Team member -->
+            <!-- Team member -->
+           
+            <!-- ./Team member -->
+            <!-- Team member -->
+            
+            <!-- ./Team member -->
+            <!-- Team member -->
+      
+            <!-- ./Team member -->
+</div>
+        </div>
+        </div>
+    </div>
+    
+</section>
+</div>
+<!-- Team -->
