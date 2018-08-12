@@ -10,7 +10,7 @@ const con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "db_v1"
+  database: "hrf"
 });
 
 // Connect to mysql
@@ -479,7 +479,7 @@ app.put('/uhy', function (req, res) {
 });
 app.get('/ghy', function (req, res) {
   //Make SQL statement:
-  var sql = "SELECT c1.parent_id AS parent,c1.child_id as child1 ,c2.child_id as child2 ,c3.child_id as child3, c4.child_id as child4 FROM tag c1 LEFT JOIN tag c2 on (c2.parent_id=c1.child_id)LEFT JOIN tag c3 on (c3.parent_id= c2.child_id)LEFT JOIN tag c4 on (c4.parent_id = c3.child_id)LEFT JOIN tag c5 on (c5.parent_id = c4.child_id) LEFT JOIN tag c5 on (c5.parent_id = c4.child_id)  ";
+  var sql = "SELECT c5.child_id AS acid ,c4.parent_id as hpid FROM tag c1  RIGHT JOIN tag c2 on (c1.child_id=c2.parent_id) RIGHT JOIN tag c3 on ( c2.child_id=c3.parent_id) RIGHT JOIN tag c4 on ( c3.child_id = c4.parent_id ) RIGHT JOIN tag c5 on ( c4.child_id=c5.parent_id ) WHERE c4.parent_id IS NOT NULL";
   
    
  

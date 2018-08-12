@@ -39,6 +39,11 @@ export class UserService {
     return this.http.get("http://localhost:8080/tag").map((res:Response) => res.json());   
 
    }
+
+   getHy(){
+    return this.http.get("http://localhost:8080/ghy").map((res:Response) => res.json());   
+
+   }
    setUserLoggenIn(){
      this.isUserLoggenIn = true;
      

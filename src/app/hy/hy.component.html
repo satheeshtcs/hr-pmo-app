@@ -16,6 +16,18 @@
         <span class="help-block" *ngIf="cemp_idControl.invalid && cemp_idControl.touched">
          Child Employee Id is required
         </span>
+        <div *ngFor="let user1 of userData.data">
+          <span class="help-block" *ngIf="hy.cemp_id== user1.emp_id">
+
+         Employee Name: {{user1.first_name}} {{user1.last_name}}
+          </span>
+        </div>
+        <div *ngFor="let user2 of roleData.data">
+          <span class="help-block" *ngIf="hy.pemp_id== user2.emp_id">
+
+         Role Name: {{user2.role_code}} 
+          </span>
+        </div>
         
       </div>
     </div>
@@ -28,9 +40,41 @@
           <span class="help-block" *ngIf="pemp_idControl.invalid && pemp_idControl.touched">
             Parent Employee Id is required
           </span>
+          <div *ngFor="let user1 of userData.data">
+            <span class="help-block" *ngIf="hy.pemp_id== user1.emp_id">
+
+           Employee Name: {{user1.first_name}} {{user1.last_name}}
+            </span>
+          </div>
+
+          <div *ngFor="let user3 of roleData.data">
+            <span class="help-block" *ngIf="hy.pemp_id== user3.emp_id">
+
+           Role Name: {{user3.role_code}} 
+            </span>
+          </div>
           
         </div>
       </div>
+
+      <div class="panel-body" >
+        
+          <label for="first_name" class="control-label">ROLE NAME</label>
+          
+          <select>
+          
+    
+          <option *ngFor = "let unm of userData.data" value="{{unm.first_name}}">{{unm.first_name}}</option>
+          
+          </select> 
+        
+               <span class="help-block" *ngIf="first_nameControl.invalid && first_nameControl.touched">
+            Employee Id is required
+          </span>
+          
+        </div>
+      
+    
       
    
     <button type="submit" class="btn btn-default" [disabled]="!userForm.form.valid">Submit</button>     
