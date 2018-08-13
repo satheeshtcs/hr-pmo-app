@@ -16,6 +16,11 @@
         <span class="help-block" *ngIf="role_codeControl.invalid && role_codeControl.touched">
           Role code is required
         </span>
+        <div *ngFor="let user2 of userData.data">
+          <span class="help-block" *ngIf="userRole.role_code==user2.role_code && userRole.role_code!=userRole1">
+            Role Code is already taken 
+          </span>
+          </div>
       </div>
     </div>
     <div class="panel-body">
@@ -27,6 +32,11 @@
         <span class="help-block" *ngIf="role_nameControl.invalid && role_nameControl.touched">
           Role Name is required
         </span>
+        <div *ngFor="let user2 of userData.data">
+          <span class="help-block" *ngIf="userRole.role_name==user2.role_name && userRole.role_name!=userRole2">
+            Role Name is already taken 
+          </span>
+          </div>
       </div>
       <div class="form-group">
         <label for="role_description">Role Description</label>

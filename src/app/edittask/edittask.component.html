@@ -21,6 +21,16 @@
         <label for="task_description">Task Description</label>
         <input id="task_description" [(ngModel)]="tasks.task_description" name="task_description" type="text" class="form-control">
       </div>
+      <div class="form-group">
+        <label for="actual_start_date">Actual Start Date</label>
+        <input id="actual_start_date" [(ngModel)]="tasks.actual_start_date" placement="top" name="actual_start_date" bsDatepicker type="text" 
+          class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="actual_end_date">Actual End Date</label>
+        <input id="actual_end_date" [(ngModel)]="tasks.actual_end_date" placement="top" name="actual_end_date" bsDatepicker type="text" 
+          class="form-control">
+      </div>
      
       
       

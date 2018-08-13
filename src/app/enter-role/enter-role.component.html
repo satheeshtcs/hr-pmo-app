@@ -7,17 +7,7 @@
       <h3 class="panel-title">ADD USER ROLE</h3>
     </div>
     </div>
-    <div class="panel-body">
-        <div class="form-group" [class.has-success]="role_idControl.valid" 
-        [class.has-error]="role_idControl.invalid && role_idControl.touched">
-          <label for="role_id" class="control-label">Role Id</label>
-          <input required id="role_id" [(ngModel)]="user1.role_id" 
-          name="role_id" type="number" #role_idControl="ngModel" class="form-control">
-          <span class="help-block" *ngIf="role_idControl.invalid && role_idControl.touched">
-            Role Id is required
-          </span>
-        </div>
-      </div>
+   
     <div class="panel-body">
       <div class="form-group" [class.has-success]="role_codeControl.valid" 
       [class.has-error]="role_codeControl.invalid && role_codeControl.touched">
@@ -27,6 +17,11 @@
         <span class="help-block" *ngIf="role_codeControl.invalid && role_codeControl.touched">
           Role code is required
         </span>
+        <div *ngFor="let user2 of roleData.data">
+          <span class="help-block" *ngIf="user1.role_code== user2.role_code">
+            Role Code is already taken 
+          </span>
+          </div>
       </div>
     </div>
     <div class="panel-body">
@@ -38,6 +33,11 @@
         <span class="help-block" *ngIf="role_nameControl.invalid && role_nameControl.touched">
           Role Name is required
         </span>
+        <div *ngFor="let user2 of roleData.data">
+          <span class="help-block" *ngIf="user1.role_name== user2.role_name">
+            Role Name is already taken 
+          </span>
+          </div>
       </div>
       <div class="form-group">
         <label for="role_description">Role Description</label>

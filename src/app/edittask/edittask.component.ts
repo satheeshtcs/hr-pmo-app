@@ -45,12 +45,14 @@ updateTask = function(task){
       "task_id" : this.taskData.data[this.n].task_id,
       "task_name" :task.task_name ,
       "task_description" : task.task_description,
+      "actual_start_date" : task.actual_start_date,
+      "actual_end_date" : task.actual_end_date
 
   }
    
   
     this.http.put("http://localhost:8080/updatetask", this.taskObj).subscribe((res:Response) => {
-      this.router.navigate(['userupdate'])
+      this.router.navigate(['tasklist'])
   })
 
 

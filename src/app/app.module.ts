@@ -9,6 +9,7 @@ import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { UserService } from './user.service';
 import { AuthGuard } from './auth.guard';
 import { RolemapComponent } from './rolemap/rolemap.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormComponent } from './form/form.component';
 import { EditComponent } from './edit/edit.component';
 import { EnterRoleComponent } from './enter-role/enter-role.component';
@@ -129,6 +130,7 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
     Ng2SmartTableModule,
     Ng2Webstorage
 

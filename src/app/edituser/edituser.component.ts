@@ -25,6 +25,8 @@ export class EdituserComponent implements OnInit {
 users:any = {};
  first_names : string;
  p=0;
+ users1:string;
+ users2:string;
  
  
  
@@ -34,6 +36,8 @@ ngOnInit(){
   this.n=this.dataService.getIndexObj();
   this.userDataList.getUserData().subscribe(data =>  this.userData = data);
 this.users=this.sessionst.retrieve("user")
+this.users1=this.users.phone_no
+this.users2=this.users.email
 
 }
 

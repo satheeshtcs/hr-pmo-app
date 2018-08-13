@@ -32,6 +32,11 @@
           <span class="help-block" *ngIf="email.errors?.email && email.touched">
             Email is invalid
           </span>
+          <div *ngFor="let user2 of userData.data">
+            <span class="help-block" *ngIf="users.email==user2.email&&users.email!=users2">
+              Email Id is already taken 
+            </span>
+            </div>
         </div>
         <div class="form-group" [class.has-error]="phoneNumber.invalid && phoneNumber.touched">
           <label class="control-label" for="phoneNumber">Phone Number</label>
@@ -40,6 +45,11 @@
           <span class="help-block" *ngIf="phoneNumber.invalid && phoneNumber.touched">
             Phone Number is required
           </span>
+          <div *ngFor="let user2 of userData.data">
+            <span class="help-block" *ngIf="users.phone_no==user2.phone_no&&users.phone_no!=users1">
+              Phone Number is already taken 
+            </span>
+            </div>
           
         </div>
         

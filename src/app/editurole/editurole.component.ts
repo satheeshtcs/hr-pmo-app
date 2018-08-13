@@ -13,6 +13,8 @@ import { SessionStorageService } from '../../../node_modules/ngx-webstorage';
   styleUrls: ['./editurole.component.css']
 })
 export class EdituroleComponent implements OnInit {
+  
+  
   user1: Userrole ={
     role_id: null,
     role_code: null,
@@ -21,18 +23,25 @@ export class EdituroleComponent implements OnInit {
   };
     
 
+  userRole1:string;
+  userRole2:string;
 
   private n:number=0;
   userData	: any = {};
   userRole : any={};
+  i=0;
   constructor(private userService: UserService, private dataService:DataService,private http: Http,private router:Router,private sessionst:SessionStorageService) { }
 
   ngOnInit() {
     this.n=this.dataService.getIndexObj();
     this.userService.getUserRole().subscribe(data => this.userData = data);
-this.userRole=this.sessionst.retrieve("role1");
+    this.userRole=this.sessionst.retrieve("role1");
+    this.userRole1=this.userRole.role_code;
+    this.userRole2=this.userRole.role_name;
+
 
   }
+ 
   updateRole = function(user1){
     this.userObj = {
       "role_id" : this.userData.data[this.n].role_id,

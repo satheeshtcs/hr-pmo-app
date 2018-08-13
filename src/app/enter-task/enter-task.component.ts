@@ -28,15 +28,20 @@ export class EnterTaskComponent implements OnInit {
       this.taskObj = {
         
         
+      
+        "task_id" : user2.task_id,
+        "task_status" :user2.task_status ,
         "task_name" : user2.task_name ,
         "task_description" : user2.task_description,
+        "actual_start_date" : user2.actual_start_date ,
+        "actual_end_date" : user2.actual_end_date
         
         
       }
       
       
         this.http.post("http://localhost:8080/entertask", this.taskObj).subscribe((res:Response) => {
-          this.router.navigate(['added'])
+          this.router.navigate(['tasklist'])
       })
       
     }

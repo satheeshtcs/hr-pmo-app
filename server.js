@@ -351,12 +351,18 @@ app.post('/entertask', function (req, res) {
   
   let task_name = req.body.task_name;
   let task_description = req.body.task_description;
+  
+  let actual_start_date = req.body.actual_start_date;
+  let actual_end_date = req.body.actual_end_date;
+
+
 
   
 
 
 
   con.query("INSERT INTO task SET ? ", { task_name: task_name, task_description: task_description, 
+     actual_start_date: actual_start_date,actual_end_date: actual_end_date
      }, function (error, results, fields) {
       if (error) throw error;
       return res.send({ error: false, data: results, message: 'New task has been created successfully.' });
@@ -367,11 +373,14 @@ app.put('/updatetask', function (req, res) {
   let task_id = req.body.task_id;
   let task_name = req.body.task_name;
   let task_description = req.body.task_description;
+  let task_status = req.body.task_status;
+  let actual_start_date = req.body.actual_start_date;
+  let actual_end_date = req.body.actual_end_date;
   
 
   
 
-  con.query("UPDATE task SET task_name = ? ,task_description = ? WHERE task_id = ?", [task_name,task_description,task_id], function (error, results, fields) {
+  con.query("UPDATE task SET task_name = ? ,task_description = ?,task_status = ?,actual_start_date = ?,actual_end_date = ? WHERE task_id = ?", [task_name,task_description,task_status,actual_start_date,actual_end_date,task_id], function (error, results, fields) {
       if (error) throw error;
       return res.send({ error: false, data: results, message: 'Task has been updated successfully.' });
   });

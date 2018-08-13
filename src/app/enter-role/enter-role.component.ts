@@ -5,6 +5,7 @@ import { SampleService } from '../services/sample-service';
 import { Userrole } from '../models/userrole.module';
 import { Router } from '../../../node_modules/@angular/router';
 import { SessionStorageService } from '../../../node_modules/ngx-webstorage';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-enter-role',
@@ -12,6 +13,8 @@ import { SessionStorageService } from '../../../node_modules/ngx-webstorage';
   styleUrls: ['./enter-role.component.css']
 })
 export class EnterRoleComponent implements OnInit   {
+  roleData: any={};
+  i=0;
   user1: Userrole ={
     role_id: null,
     role_code: null,
@@ -31,9 +34,10 @@ export class EnterRoleComponent implements OnInit   {
     
   
 
-    constructor(private http: Http,private router:Router,private sessiont:SessionStorageService ) { }
+    constructor(private http: Http,private router:Router,private sessiont:SessionStorageService, private roleListing :UserService ) { }
 
     ngOnInit() {
+      this.roleListing.getUserRole().subscribe(data => this.roleData=data )
     }
     addNewRole = function(user1){
       this.userObj = {

@@ -24,6 +24,7 @@ n=0;
     this.n=i;
     this.dataService.setIndexObj( this.n);
     this.sessiont.store("taskd",this.taskDataListing.data[i]);
+    console.log(this.taskDataListing.data[i].actual_start_date)
 
   }
   deleteTask = function(i){
