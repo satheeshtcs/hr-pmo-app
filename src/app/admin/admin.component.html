@@ -1,0 +1,9 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="dash">
+    <div *ngFor="let user of userData.data">
+        <div *ngIf = "emp_id==user.emp_id">
+    <p>{{user.first_name}} {{user.last_name}}  , Welcome to your dashboard</p>
+</div>
+</div>
+    </div>
