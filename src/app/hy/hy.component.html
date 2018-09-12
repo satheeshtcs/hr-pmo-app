@@ -1,0 +1,58 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="kk">
+<form #userForm="ngForm" ngNativeValidate (ngSubmit)="saveUser(userForm.value)">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">ADD USER</h3>
+    </div>
+</div>
+    <div class="panel-body" >
+      <div class="form-group" [class.has-success]="cemp_idControl.valid" 
+      [class.has-error]="cemp_idControl.invalid && cemp_idControl.touched">
+        <label for="cemp_id" class="control-label">Child Employee ID</label>
+        <input required id="cemp_id" [(ngModel)]="hy.cemp_id" 
+        name="cemp_id" type="number" #cemp_idControl="ngModel" class="form-control">
+        <span class="help-block" *ngIf="cemp_idControl.invalid && cemp_idControl.touched">
+         Child Employee Id is required
+        </span>
+        <div *ngFor="let user1 of userData.data">
+          <span class="help-block" *ngIf="hy.cemp_id== user1.emp_id">
+
+         Employee Name: {{user1.first_name}} {{user1.last_name}}
+          </span>
+        </div>
+        
+        
+      </div>
+    </div>
+    <div class="panel-body" >
+        <div class="form-group" [class.has-success]="pemp_idControl.valid" 
+        [class.has-error]="pemp_idControl.invalid && pemp_idControl.touched">
+          <label for="pemp_id" class="control-label">Parent Employee Id</label>
+          <input required id="pemp_id" [(ngModel)]="hy.pemp_id" 
+          name="pemp_id" type="number" #pemp_idControl="ngModel" class="form-control">
+          <span class="help-block" *ngIf="pemp_idControl.invalid && pemp_idControl.touched">
+            Parent Employee Id is required
+          </span>
+          <div *ngFor="let user1 of userData.data">
+            <span class="help-block" *ngIf="hy.pemp_id== user1.emp_id">
+
+           Employee Name: {{user1.first_name}} {{user1.last_name}}
+            </span>
+          </div>
+
+          
+        </div>
+      </div>
+
+      
+    
+      
+   
+    <button type="submit" class="btn btn-default" [disabled]="!userForm.form.valid">Submit</button>     
+     <button type="button" class="button" (click)="Cancel()" >Cancel</button>
+
+  
+</form>
+
